@@ -26,14 +26,17 @@ Vous pouvez également le faire par ligne de commande :
 ```bash
 #!/bin/bash
 
-# Redimensionnement
-php optimization.php resize="$maxWidth"
+# Redimensionnement en px
+php optimization.php resize=... # de 1 à 2000
 
-# Conversion / Facteur de compression
-php optimization.php convert="$compression"
+# Conversion / Facteur de compression en %
+php optimization.php convert=... # de 1 à 100
 
 # Regroupement des 2 fonctions
-php optimization.php convert="$compression" resize="$maxWidth"
+php optimization.php convert=... resize=...
+
+#  Exemple
+php optimization.php convert=10 resize=800
 
 ```
 3. **Recupérer les images optimisés :** Les images converties et redimensionnées seront enregistrées dans le dossier images-optimization. 
@@ -41,3 +44,6 @@ php optimization.php convert="$compression" resize="$maxWidth"
 
 ## Dépendances
 Assurez-vous que la bibliothèque GD de PHP est installée sur votre système. Elle est nécessaire pour manipuler les images.
+
+## Notes
+* Plus le facteur de compression est bas plus l'image sera compressée !
