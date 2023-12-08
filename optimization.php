@@ -146,9 +146,14 @@ if (count($commands) > 0) {
     }
     if (isset($commands['resize'])) {
         if ($commands['resize'] <= 2000 && $commands['resize'] > 0) {
+            if (is_dir($optimizedImagesDirectory)) {
+                $newimagesDirectory = $optimizedImagesDirectory;
+            } else {
+                $newimagesDirectory = $imagesDirectory;
+            }
             $maxSize = intval($commands['resize']);
             echo "\n------------Resize images to a maximum size of " . $maxSize . "px\n\n";
-            resizeImages($imagesDirectory, $maxSize, $optimizedImagesDirectory);
+            resizeImages($newimagesDirectory, $maxSize, $optimizedImagesDirectory);
         } else {
             echo "Please specify an image size between 1 and 2000." . PHP_EOL;
         }
