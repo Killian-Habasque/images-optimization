@@ -59,6 +59,10 @@ function convertImages($directory, $webpDirectory, $compressionFactor)
 
 function resizeImages($directory, $maxSize, $targetDirectory = null)
 {
+    if (!is_dir($targetDirectory)) {
+        mkdir($targetDirectory, 0777, true);
+    }
+
     $dir = opendir($directory);
     $number = 0;
 
